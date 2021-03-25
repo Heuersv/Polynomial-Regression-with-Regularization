@@ -6,4 +6,4 @@ The coefficients for the resulting polynom are calculated in `polynomial_regress
 An example file for testing is provided in `test_regression.m`.
 
 ## Remarks
-The regularization "punishes" high derivatives of the polynomial at the sampling points and at the edges of the considered interval.
+The regularization "punishes" high derivatives of the polynomial at the sampling points and at extra points given by the user.
