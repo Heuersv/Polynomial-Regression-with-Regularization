@@ -11,7 +11,7 @@ assert(degree < length(sampling_points), 'Degree to high, would interpolate inst
 
 % Needed matrices
 poly_matr = get_polynomial_matrix(sampling_points, degree);
-diff_matr = get_differential_matrix(sampling_points, extra_points, degree);
+diff_matr = get_differential_matrix(extra_points, degree);
 
 % Sampling Values must be saved in column, not row
 if (length(sampling_values(1, :)) > 1)

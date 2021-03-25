@@ -1,4 +1,4 @@
-function [ diff_matr ] = get_differential_matrix( sampling_points, extra_points, degree )
+function [ diff_matr ] = get_differential_matrix( sampling_points, degree )
 %GET_DIFFERENTIAL_MATRIX Calculate Matrix for first derivative of
 %polynomial
 %   Use timestamps t_i to calculate (p+1)*t_i^p for every desired
@@ -8,17 +8,6 @@ assert(isvector(sampling_points), 'Sampling points must be saved in (one-dimensi
 if (degree > length(sampling_points))
     warning('For regression, the degrees of freedom should be fewer than the conditions.');
 end
-
-% Convert vectors to row vectors if necessary
-if (length(sampling_points(:, 1)) > 1)
-    sampling_points = sampling_points';
-end
-if (length(extra_points(:, 1)) > 1)
-    sampling_points = sampling_points';
-end
-
-% Add extra points to sampling points
-sampling_points = [sampling_points, extra_points];
 
 % One row for every timestamp
 rows = length(sampling_points);

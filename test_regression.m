@@ -7,7 +7,7 @@ ndvi_values = 1/100 * [43, 55, 5, 73, 72, 82, 85, 79, 81, 84, 70, 62, 59, 66, 64
 % Change these parameters for testing
 degree = 6;
 regularization_factor = 10;
-extra_points = int32(linspace(0, 365, 100));
+extra_points = int32([linspace(0, 40, 20), linspace(320, 365, 25)]);
 %extra_points = [min(timestamps), max(timestamps)];
 
 % Do the regression
