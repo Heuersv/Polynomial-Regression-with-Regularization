@@ -1,4 +1,4 @@
-function [ coefficients ] = polynomial_regression( sampling_points, sampling_values, degree, regularization_factor, edges )
+function [ coefficients ] = polynomial_regression( sampling_points, sampling_values, degree, regularization_factor, extra_points )
 %POLYNOMIAL_REGRESSION Compute polynom to fit given measurements
 %   Allows for regularization with a penalty for high derivatives at the
 %   sampling points.
@@ -11,7 +11,7 @@ assert(degree < length(sampling_points), 'Degree to high, would interpolate inst
 
 % Needed matrices
 poly_matr = get_polynomial_matrix(sampling_points, degree);
-diff_matr = get_differential_matrix(sampling_points, degree, edges);
+diff_matr = get_differential_matrix(sampling_points, extra_points, degree);
 
 % Sampling Values must be saved in column, not row
 if (length(sampling_values(1, :)) > 1)
