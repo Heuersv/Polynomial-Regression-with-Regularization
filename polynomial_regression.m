@@ -18,7 +18,7 @@ if (length(sampling_values(1, :)) > 1)
     sampling_values = sampling_values';
 end
 
-% Solve equaltion
+% Solve equation
 coefficients = (poly_matr' * poly_matr + regularization_factor * (diff_matr' * diff_matr)) \ (poly_matr' * sampling_values);
 
 end
