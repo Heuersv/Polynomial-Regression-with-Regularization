@@ -11,7 +11,7 @@ degree = min(6, length(timestamps) - 2);
 regularization_factor = 10;
 extra_points = int32([0:3:min(timestamps), max(timestamps):3:365]);
 %extra_points = [min(timestamps), max(timestamps)];
-weights = get_weights(timestamps);
+weights = get_weights(timestamps, 1);
 % weights = ones(length(timestamps), 1);
 
 

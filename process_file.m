@@ -19,7 +19,7 @@ for row = 2:length(data(:,1))
     % Extra points for regularization.
     extra_points = int32([0:3:min(timestamps), max(timestamps):3:365]);
     % Calculate weights depending on timestamps
-    weights = get_weights(timestamps);
+    weights = get_weights(timestamps, 1);
     
     % Get coefficients
     coefficients = polynomial_regression(timestamps, values, degree, reg_factor, extra_points, weights);
