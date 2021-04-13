@@ -18,9 +18,11 @@ for row = 2:length(data(:,1))
     degree = max(min(6, length(timestamps) - 2), 1);
     % Extra points for regularization.
     extra_points = int32([0:3:min(timestamps), max(timestamps):3:365]);
+    % Calculate weights depending on timestamps
+    weights = get_weights(timestamps);
     
     % Get coefficients
-    coefficients = polynomial_regression(timestamps, values, degree, reg_factor, extra_points);
+    coefficients = polynomial_regression(timestamps, values, degree, reg_factor, extra_points, weights);
     
     % Write coefficients to result matrix
     results(row-1, 1:degree+1) = coefficients';

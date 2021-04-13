@@ -11,13 +11,15 @@ degree = min(6, length(timestamps) - 2);
 regularization_factor = 10;
 extra_points = int32([0:3:min(timestamps), max(timestamps):3:365]);
 %extra_points = [min(timestamps), max(timestamps)];
+weights = get_weights(timestamps);
+% weights = ones(length(timestamps), 1);
 
 
 % Do the regression
-coefficients = polynomial_regression(timestamps, ndvi_values, degree, regularization_factor, extra_points);
+coefficients = polynomial_regression(timestamps, ndvi_values, degree, regularization_factor, extra_points, weights);
 
 % Plot result
-scatter(timestamps, values)
+scatter(timestamps, ndvi_values)
 hold on
 fplot(@(x) polyval(fliplr(coefficients'), x), single([min(extra_points), max(extra_points)]))
 hold off

@@ -5,8 +5,8 @@ degree = 6;
 regularization_factor = 10;
 
 % Put in all folder names "by hand"
-for dataset = {'band_tabs_cumulated'}
-    for folder = {'mean', 'pure_pixels', 'sd'}
+for dataset = {'new_tables'}
+    for folder = {'mean_per_plot', 'sd_per_plot'}
         % A lot of handling the filenames
         path = strcat(dataset, '/', folder, '/');
         files_string = strcat('data/', path, '*.csv');
